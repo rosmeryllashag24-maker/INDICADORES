@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicadores educativos del Perú | INEI 2014–2024</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <div class="brand"><small>Panel estadístico · Perú</small><h1>Educación en cifras</h1><p>Indicadores departamentales · 2014–2024</p></div>
+  <div class="nav-label">Navegación</div>
+  <nav>
+    <button class="active" data-view="resumen"><span class="num">01</span>Resumen general</button>
+    <button data-view="asistencia"><span class="num">02</span>Asistencia secundaria</button>
+    <button data-view="analfabetismo"><span class="num">03</span>Analfabetismo</button>
+    <button data-view="evolucion"><span class="num">04</span>Evolución 2014–2024</button>
+    <button data-view="residencia"><span class="num">05</span>Área de residencia</button>
+    <button data-view="datos"><span class="num">06</span>Base de datos</button>
+    <button data-view="fuentes"><span class="num">07</span>Fuentes y metodología</button>
+  </nav>
+  <div class="side-foot">Fuente de referencia: INEI<br>Diseño editorial monocromático<br>Vista interactiva</div>
+</aside>
+<main>
+  <div class="topbar"><div><div class="eyebrow">Observatorio de indicadores educativos</div><h2 id="page-title">Resumen general</h2><p class="lead" id="page-lead">Una lectura visual de las diferencias territoriales y de la evolución de indicadores educativos del Perú.</p></div><div class="pill">INEI · 2014—2024</div></div>
+
+  <section class="view active" id="resumen">
+    <div class="metrics">
+      <div class="metric"><div class="label">Asistencia neta a secundaria · nacional · 2024</div><div class="value">86,6%</div><div class="note">Indicador de asistencia</div></div>
+      <div class="metric"><div class="label">Analfabetismo · nacional · 2024</div><div class="value">4,7%</div><div class="note">Población de 15 años o más</div></div>
+      <div class="metric"><div class="label">Mayor asistencia departamental</div><div class="value">93,7%</div><div class="note">Moquegua · 2024</div></div>
+      <div class="metric"><div class="label">Menor asistencia departamental</div><div class="value">80,8%</div><div class="note">La Libertad · 2024</div></div>
+    </div>
+    <div class="two-col">
+      <div class="card"><div class="card-head"><div><h3>Asistencia neta a secundaria</h3><p class="sub">Departamentos con valores más altos y más bajos · 2024</p></div></div><div id="overview-attendance" class="chart small"></div></div>
+      <div class="card"><div class="card-head"><div><h3>Analfabetismo</h3><p class="sub">Departamentos con tasas más altas y más bajas · 2024</p></div></div><div id="overview-literacy" class="chart small"></div></div>
+    </div>
+    <div class="insight"><strong>Lectura general.</strong> Los datos departamentales muestran diferencias en el acceso a la educación secundaria y en las tasas de analfabetismo. Estas diferencias deben interpretarse considerando el indicador, el año de referencia y las definiciones estadísticas de la fuente.</div>
+  </section>
+
+  <section class="view" id="asistencia">
+    <div class="card"><div class="card-head"><div><h3>Asistencia neta a educación secundaria por departamento</h3><p class="sub">Año 2024 · porcentaje · orden ascendente</p></div><div class="pill">26 ámbitos territoriales</div></div>
+      <div class="controls"><button class="tab active" data-att-type="bar">Barras horizontales</button><button class="tab" data-att-type="dot">Puntos</button></div>
+      <div id="attendance-chart" class="chart"></div>
+      <p class="note">La línea de referencia representa el promedio nacional de 86,6% indicado en los datos proporcionados.</p>
+    </div>
+    <div class="insight">La visualización facilita identificar las diferencias entre ámbitos territoriales. Los porcentajes más altos y más bajos del conjunto proporcionado son Moquegua (93,7%) y La Libertad (80,8%), respectivamente.</div>
+  </section>
+
+  <section class="view" id="analfabetismo">
+    <div class="card"><div class="card-head"><div><h3>Tasa de analfabetismo por departamento</h3><p class="sub">Población de 15 años o más · 2024 · porcentaje</p></div><div class="pill">26 ámbitos territoriales</div></div>
+      <div class="controls"><button class="tab active" data-lit-type="bar">Barras horizontales</button><button class="tab" data-lit-type="dot">Puntos</button></div>
+      <div id="literacy-chart" class="chart"></div>
+      <p class="note">La línea de referencia representa el promedio nacional de 4,7% indicado en los datos proporcionados.</p>
+    </div>
+    <div class="insight">En los datos ingresados, Huánuco presenta la tasa más alta (12,1%) y Lima Metropolitana la más baja (1,8%). La comparación describe diferencias territoriales, pero no explica por sí sola sus causas.</div>
+  </section>
+
+  <section class="view" id="evolucion">
+    <div class="card"><div class="card-head"><div><h3>Evolución del analfabetismo en el Perú</h3><p class="sub">Serie anual 2014–2024 · porcentaje</p></div><div class="pill">11 observaciones</div></div>
+      <div class="controls"><button class="tab active" data-evo-type="line">Línea</button><button class="tab" data-evo-type="bar">Barras</button></div>
+      <div id="evolution-chart" class="chart"></div>
+    </div>
+    <div class="insight">La serie suministrada desciende de 6,3% en 2014 a 4,7% en 2024. La diferencia entre ambos puntos es de 1,6 puntos porcentuales. La evolución anual debe interpretarse según la metodología de cada año.</div>
+  </section>
+
+  <section class="view" id="residencia">
+    <div class="card"><div class="card-head"><div><h3>Asistencia neta a secundaria por área de residencia</h3><p class="sub">Nacional, urbana y rural · 2019–2024 · porcentaje</p></div><div class="pill">Comparación temporal</div></div>
+      <div class="controls"><button class="tab active" data-area-type="line">Líneas</button><button class="tab" data-area-type="bar">Barras agrupadas</button></div>
+      <div id="area-chart" class="chart"></div>
+      <p class="note">Las tres series se muestran tal como fueron ingresadas en el código compartido.</p>
+    </div>
+    <div class="insight">La visualización compara la asistencia reportada para el ámbito nacional y las áreas urbana y rural. Antes de publicar resultados definitivos, conviene contrastar los valores anuales con el cuadro original de INEI y confirmar que las tres series empleen la misma definición de tasa neta.</div>
+  </section>
+
+  <section class="view" id="datos">
+    <div class="card"><div class="card-head"><div><h3>Base de datos utilizada</h3><p class="sub">Valores incorporados desde el código proporcionado</p></div></div>
+      <div class="controls"><label class="note" for="dataset">Seleccionar conjunto de datos</label><select id="dataset" class="tab"><option value="attendance">Asistencia secundaria por departamento · 2024</option><option value="literacy">Analfabetismo por departamento · 2024</option><option value="evolution">Evolución del analfabetismo · 2014–2024</option><option value="area">Asistencia por área · 2019–2024</option></select><button id="download-csv" class="tab">Exportar CSV</button></div>
+      <div class="table-wrap"><table><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+      <p class="note" style="margin-top:14px">La tabla reproduce los valores del código compartido. La página no modifica ni completa los datos originales.</p>
+    </div>
+  </section>
+
+  <section class="view" id="fuentes">
+    <div class="card"><h3>Fuente estadística de referencia</h3><p class="sub">Publicación del Instituto Nacional de Estadística e Informática (INEI).</p>
+      <p style="line-height:1.7;font-size:14px">La página organiza indicadores de asistencia a educación secundaria y analfabetismo por departamento, una serie temporal de analfabetismo y una comparación de asistencia según área de residencia.</p>
+      <p class="sources"><strong>Publicación:</strong> <a href="https://www.gob.pe/institucion/inei/informes-publicaciones/7020268-peru-indicadores-de-educacion-segun-departamentos-2014-2024" target="_blank" rel="noopener">Perú: Indicadores de Educación según Departamentos, 2014–2024</a></p>
+      <p class="sources"><strong>Microdatos:</strong> <a href="https://proyectos.inei.gob.pe/microdatos/" target="_blank" rel="noopener">Portal de microdatos del INEI</a></p>
+      <p class="sources"><strong>Bases de datos:</strong> <a href="https://www.inei.gob.pe/bases-de-datos/" target="_blank" rel="noopener">Bases de datos del INEI</a></p>
+    </div>
+    <div class="card"><h3>Nota metodológica</h3><p class="note">Los valores de esta página se han tomado del código facilitado por el usuario, quien indica que fueron seleccionados de indicadores y diferencias educativas por departamento del INEI. La página presenta esos valores sin alterarlos. Esta implementación no constituye una auditoría independiente de cada cifra contra las tablas originales. Para un informe final, se recomienda incluir el número de cuadro, página, año y definición exacta de cada indicador consultado.</p></div>
+  </section>
+
+  <footer>Panel de consulta educativa · Diseño minimalista en escala de grises · Fuente de referencia: INEI. <br>Los gráficos requieren conexión a internet para cargar Plotly.</footer>
+</main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
